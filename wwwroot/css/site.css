@@ -1,0 +1,355 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.navbar-end{
+
+  padding-right: 30px;
+
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.cars-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.car-card {
+  background-color: white;
+  border: 2px solid #6c757d;
+  border-radius: 40px;
+  overflow: hidden;
+  width: 350px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.players-card {
+  position: relative;
+  background-color: white;
+  border: 4px solid #6c757d;
+  border-radius: 40px;
+  overflow: hidden;
+  width: 350px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.players-card .CruddyButtys {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.players-card .btn-transparent {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.players-card .dropdown-menu {
+  background-color: #6c757d;
+  border-radius: 12px;
+  border: 2px solid black;
+}
+.dropdown-menu-narrow {
+  width: 10p;
+  max-width: 10px; /* Adjust this value as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.players-card .dropdown-item {
+  padding: 3px 10px;
+  color: white; /* black text color */
+}
+
+.players-card .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* subtle background on hover */
+  color: white; /* ensure text color stays black on hover */
+}
+
+.car-card:hover {
+  transform: scale(1.05);
+}
+.car-image {
+  width: 100%;
+  
+  height: 400px;
+  object-fit:cover;
+}
+.car-info {
+  padding: 15px;
+}
+.car-info h2 {
+  margin-top: 0;
+}
+
+.buy-btn {
+  background-color: #6c757d; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration:wavy;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.buy-btn:hover{
+  background-image: linear-gradient(to right, #eb0c80, orange);
+  border: 4px solid #eb0c80;
+  box-shadow: 0 0 20px 5px #eb0c80;
+  color: white;
+}
+
+.Login-btn {
+  white-space: nowrap;
+  background-color: #6c757d; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration:wavy;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.Login-btn:hover{
+  background-color: red;
+  border: 4px solid white;
+  box-shadow: 0 0 20px 5px red;
+}
+
+
+.link-container {
+  display: flex;
+  justify-content: space-around; /* This will spread the links out evenly */
+  padding: 10px 0; /* Add some padding for visual spacing */
+}
+
+.CruddyButtys {
+  display: flex;
+  justify-content: space-between; /* This will spread the buttons out evenly across the container */
+  padding: 10px; /* Add some padding for visual spacing */
+}
+
+.crud_but {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* Example fixed height */
+  width: 80px; /* Keep your fixed width */
+  background-color: #6c757d; /* A shade of grey */
+  color: white; /* Text color */
+  border: 4px solid #6c757d; /* Updated border */
+  padding: 0; /* Adjust padding as needed, or remove if using flexbox for alignment */
+  font-size: 16px; /* Text size */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  text-decoration: none;
+}
+
+.crud_but:hover {
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+  color: white;
+  background-image: linear-gradient(to right, #eb0c80, orange);
+  border: 4px solid #eb0c80;
+  box-shadow: 0 0 20px 5px #eb0c80;
+  text-align: center;
+}
+
+.FatImageCentre{
+  text-align: center;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.profile-header h1 {
+  font-weight: 300;
+}
+.profile-info dt {
+  font-weight: bold;
+}
+.profile-info dd {
+  margin-bottom: 10px;
+}
+
+
+.login-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.form-control {
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.btn-prim {
+  border-radius: 20px;
+  border: none;
+  padding: 10px 0;
+  font-size: 18px;
+} 
+
+.Fatty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 150px;
+}
+
+
+
+.privcontainer {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+}
+
+.view-profile-container {
+  position: relative;
+  padding-top: 110px; /* Adjust based on the size of the profile picture */
+  max-width: 800px;
+  margin: 40px auto;
+  background: #231f20;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+  padding: 20px;
+}
+.view-profile-pic {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area well */
+}
+.view-profile-header {
+  padding-left: 120px; /* Adjust based on the size of the profile picture */
+}
+
+.larger-text {
+  font-size: 1.25rem; /* Example size, adjust as needed */
+}
+
+section {
+  margin-bottom: 20px;
+}
+.important {
+  background-color: #ffdddd;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+
+
+
+.leader-row {
+  color: white;
+  background-color: #231f20;
+  display: flex;
+  border: 1px solid #6c757d;
+  margin-bottom: 10px;
+  padding: 10px;
+  align-items:flex-start;
+  }
+
+.leader-row:hover {
+  background-color: #383134;
+  color: white;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.player-bio {
+  display: none; /* Hide bio initially */
+  padding-top: 10px; /* Add some spacing */
+}
+
+
+.profile-link {
+  flex: 0.25;
+  text-align: center;
+}
+
+.profile-info{
+  padding-top: 20px;
+  padding-left: 125px;
+}
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+}
+
+.inventory-slider {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%; /* Adjust based on your layout */
+  height: 520px; /* Adjust based on your images' height + some padding */
+}
+
+.inventory-item {
+  display: inline-block;
+  margin-right: 50px;
+  width: 600px; /* Your existing width */
+  height: 450px; /* Your existing height */
+  object-fit: contain;
+  margin-right: 10px; /* Adds some space between images */
+}

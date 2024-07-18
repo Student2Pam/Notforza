@@ -1,0 +1,29 @@
+@page
+@model Downloads.Pages.Admin.AdminMenuModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Page to Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                Admin Menu
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Select a Page to Edit</h5>
+                <p class="card-text">Choose one of the options below to proceed.</p>
+                <a href="/Admin/AdminCar" class="btn btn-primary">Cars Page</a>
+                <a href="/Admin/AdminPlayer" class="btn btn-secondary">Leaderboard Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

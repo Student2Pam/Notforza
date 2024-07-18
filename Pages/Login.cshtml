@@ -1,0 +1,23 @@
+@page
+@model Downloads.Pages.Login.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+<br>
+<div class = "Fatty">
+    <div class="login-container">
+        <h2 class="text-center" style="margin-bottom: 20px;">Login</h2>
+        <form method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" id="Username" name="Username" placeholder="Username" required />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" required />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+    </div>
+</div>

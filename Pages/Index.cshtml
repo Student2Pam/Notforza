@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+    <link rel="stylesheet" href="_Layout.cshtml.css" />
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container img {
+            margin-left: 20px;
+        }
+
+        .stuff {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 79vh;
+        }
+
+        #big_image {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<div class="stuff">
+    <div class="image-container">
+        <div>
+            <h1 class="display-4">Welcome</h1>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <h2>Admin</h2>
+            }
+            else
+            {
+                <h2>Guest</h2>
+            }
+            <p>to the NotForza webapp</p>
+        </div>
+        <img src="~/images/I_LOVE_not_FORZA_nobg.png" alt="Image Description" id="big_image"/>
+    </div>
+</div>
