@@ -2,6 +2,7 @@
 @model Downloads.Pages_PlayerStats.AdminPlayerModel
 
 @{
+    ViewData["IsColourful"] = true;
     ViewData["Title"] = "Index";
 }
 
@@ -9,18 +10,23 @@
 <h1 style="padding-top:20px;"> Leaderboard </h1>
 
 <p>
-    <a asp-page="/PlayerStats/Create">Create New</a> <br>
     <a asp-page="/Admin/AdminMenu">Back to Admin Menu</a>
 </p>
 
-<div class="cars-container">
+<div class="player-container">   
     @foreach (var Stats in Model.PlayerStats)
     {
         <div class="players-card">
+
+            
+           
+
+            
             <div class="FatImageCentre" style="border-bottom: 4px solid #6c757d ;">
-                <img src="@Stats.ProfilePic" alt="Profile Picture" class="car-image" />
+                <img src="@Stats.ProfilePic" alt="Profile Picture" class="player-image" />
             </div>
-            <div class="car-info">
+           
+            <div class="player-info">
                 <h2>@Html.DisplayFor(modelItem => Stats.Username)</h2>
                 <h4>Rank: @Html.DisplayFor(modelItem => Stats.RankLevel)</h4>
                 <p>Social Level: @Html.DisplayFor(modelItem => Stats.SocialLevel)</p>
@@ -29,11 +35,12 @@
                 <div style="text-align: center;"> 
                     <a asp-page="/PlayerStats/ViewProfile" asp-route-id="@Stats.PlayerID" class="buy-btn">View Profile</a>
                 </div>
+                
                 <div class="CruddyButtys">
                     <!-- Dropdown menu -->
                     <div class="dropdown" style="width: 10px;">
                         <button class="btn btn-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-h" style="color: black; width: 10px;"></i>
+                            <i class="fas fa-ellipsis-h" style="color: #6c757d; width: 10px;"></i>
                         </button>
                        <div class="dropdown-menu dropdown-menu-narrow" aria-labelledby="dropdownMenuButton">
                             <a asp-page="/PlayerStats/Edit" asp-route-id="@Stats.PlayerID" class="dropdown-item">Edit</a>
@@ -41,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     }

@@ -1,6 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
+    ViewData["IsColourful"] = true;
     ViewData["Title"] = "Home page";
 }
 <head>
@@ -35,7 +36,7 @@
             <h1 class="display-4">Welcome</h1>
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-                <h2>Admin</h2>
+                <h2>@User.Identity.Name</h2>
             }
             else
             {

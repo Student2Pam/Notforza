@@ -13,7 +13,7 @@ namespace Downloads.Pages_PlayerStats
 {
 
 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminPlayerModel : PageModel
     {
         private readonly Downloads.Data.NotForzaContext _context;

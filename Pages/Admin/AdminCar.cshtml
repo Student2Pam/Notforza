@@ -2,6 +2,7 @@
 @model Downloads.Pages_Cars.AdminCarModel 
 
 @{
+    ViewData["IsColourful"] = true;
     ViewData["Title"] = "Cars";
 }
 
@@ -12,12 +13,25 @@
     <a asp-page="/Admin/AdminMenu">Back to Admin Menu</a>
 </p>
 
-<div class="cars-container">
+<div class="cars-containerAdmin">
     @foreach (var car in Model.Car)
     {
-        <div class="car-card">
-            <div class="FatImageCentre">
-                <img src="@car.CarPicURL" alt="Car Image" class="@car.CarModel Image" style="width: 300px; height: 300px; object-fit: contain;"/>
+        <div class="car-card"> 
+               
+            <div class="car-image-containerAdmin" style="background-color: white; border-radius: 15px; padding: 10px; display: inline-block;">
+                <div class="CruddyButtys">
+                    <!-- Dropdown menu -->
+                    <div class="dropdown" style="width: 10px;">
+                        <button class="btn btn-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h" style="color: black; width: 10px;"></i>
+                        </button>
+                       <div class="dropdown-menu dropdown-menu-narrow" aria-labelledby="dropdownMenuButton">
+                            <a asp-page="/Cars/Edit" asp-route-id="@car.CarID" class="dropdown-item">Edit</a>
+                            <a asp-page="/Cars/Delete" asp-route-id="@car.CarID" class="dropdown-item">Ban</a>
+                        </div>
+                    </div>
+                </div>
+                <img src="@car.CarPicURL" alt="Car Image" class="car-imageAdmin" style="width: 300px; height: 300px; object-fit: contain; border-radius: 10px;"/>
             </div>
             <div class="car-info">
                 <h2>@Html.DisplayFor(modelItem => car.CarName)</h2>
@@ -28,13 +42,10 @@
                 <div style="text-align: center;"> 
                     <button class="buy-btn" onclick="location.href='/Marketplace'">Buy Now</button>
                 </div>
-                <div class="CruddyButtys">
-                    <a asp-page="/Cars/Edit" asp-route-id="@car.CarID" class="crud_but">Edit</a>
-                    <a asp-page="/Cars/Details" asp-route-id="@car.CarID" class="crud_but">Details</a>
-                    <a asp-page="/Cars/Delete" asp-route-id="@car.CarID" class="crud_but">Delete</a>
-                </div>
-
+                
+            
             </div>
         </div>
     }
+
 </div>

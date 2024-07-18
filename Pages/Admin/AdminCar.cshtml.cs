@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Downloads.Pages_Cars
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminCarModel : PageModel
     {
         private readonly Downloads.Data.NotForzaContext _context;

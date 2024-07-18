@@ -35,16 +35,72 @@ body {
   padding: 20px;
 }
 
+.cars-containerAdmin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  padding: 20px;
+}
+
 
 .car-card {
-  background-color: white;
-  border: 2px solid #6c757d;
+  border: 1px solid #ffffff;
+  background-color: #231f20;
+  color: white;
+  
   border-radius: 40px;
   overflow: hidden;
   width: 350px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.2s;
 }
+
+.car-card:hover {
+  transform: scale(1.05);
+  background-color: #413c3c;
+}
+
+.car-image-container{
+  border: 1px solid #6c757d;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 300px;
+  height: 200px;
+}
+
+.car-image-containerAdmin{
+  border: 1px solid #6c757d;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 300px;
+  height: 200px;
+  display: block; /* or 'display: flex;' depending on your layout needs */
+  position: relative;
+  display: flex;
+  align-items: center; /* Centers children vertically */
+  justify-content: center; /* Centers children horizontally, if needed */
+  
+ 
+}
+
+.car-image{
+  
+  align-content: center;
+  padding-right: 20px;
+  padding-bottom: 100px;
+}
+
+.car-imageAdmin{
+  position: absolute;
+  top: -40px; /* Adjust this value as needed to move the image up */
+  left: 0; /* Aligns the image to the left; adjust as needed */
+  width: 100%; /* Ensures the image spans the full width of the container */
+  height: auto; /* Keeps the image aspect ratio intact */
+  
+  object-fit: cover;
+}
+
 
 .players-card {
   position: relative;
@@ -63,9 +119,16 @@ body {
   left: 10px;
 }
 
+.dropdown-toggle{
+  color: #6c757d;
+  border: black 2px solid;
+  width: 40px;
+}
+
 .players-card .btn-transparent {
-  background: transparent;
-  border: none;
+  color: #6c757d;
+  background-color: #ffffff;
+  border: #6c757d 2px solid;
   padding: 0;
 }
 
@@ -87,13 +150,12 @@ body {
 }
 
 .players-card .dropdown-item:hover {
+
   background-color: rgba(0, 0, 0, 0.1); /* subtle background on hover */
   color: white; /* ensure text color stays black on hover */
 }
 
-.car-card:hover {
-  transform: scale(1.05);
-}
+
 .car-image {
   width: 100%;
   
@@ -130,6 +192,29 @@ body {
   color: white;
 }
 
+.Logout-btn {
+  white-space: nowrap;
+  background-color: #6c757d; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration:wavy;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.Logout-btn:hover{
+  background-color: #ce0808;
+  border: 4px solid white;
+  box-shadow: 0 0 20px 5px #ce0808;
+}
+
 .Login-btn {
   white-space: nowrap;
   background-color: #6c757d; /* Green */
@@ -148,11 +233,33 @@ body {
 }
 
 .Login-btn:hover{
-  background-color: red;
+  background-color: #0e739b;
   border: 4px solid white;
-  box-shadow: 0 0 20px 5px red;
+  box-shadow: 0 0 10px 5px #0e739b;
 }
 
+.Admin-btn {
+  white-space: nowrap;
+  background-color: #6c757d; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration:wavy;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.Admin-btn:hover{
+  background-color: blueviolet;
+  border: 4px solid white;
+  box-shadow: 0 0 10px 5px blueviolet;
+}
 
 .link-container {
   display: flex;
@@ -191,9 +298,7 @@ body {
   text-align: center;
 }
 
-.FatImageCentre{
-  text-align: center;
-}
+
 
 .profile-container {
   max-width: 800px;
@@ -251,7 +356,7 @@ body {
 .privcontainer {
   max-width: 800px;
   margin: auto;
-  padding: 20px;
+  padding: 20px; 
   background: #fff;
 }
 
@@ -312,9 +417,7 @@ section {
 }
 
 .player-info {
-  display: flex;
-  align-items: center;
-  flex: 1;
+  padding: 15px;
 }
 
 .player-bio {
@@ -353,3 +456,68 @@ section {
   object-fit: contain;
   margin-right: 10px; /* Adds some space between images */
 }
+
+.access-denied-container {
+  padding: 20px;
+  background-color: #fff3f3; /* Light red background */
+  border: 1px solid #ffcccc; /* Red border */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center;
+  max-width: 600px;
+  margin: 50px auto; /* Center the container */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow */
+}
+.access-denied-container h1, .access-denied-container h2 {
+  color: #d9534f; /* Bootstrap's `btn-danger` color */
+}
+.access-denied-container p {
+  color: #000000; /* Dark gray text */
+}
+.btn-primary {
+  background-color: #0275d8; /* Bootstrap's `btn-primary` color */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none; /* Remove underline from the link */
+  border-radius: 5px; /* Rounded corners for the button */
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #025aa5; /* Darker blue on hover */
+}
+
+.player-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.FatImageCentre{
+
+  width: 600px;
+}
+
+.player-image-container{
+  border: 1px solid #6c757d;
+  
+  width: 600px;
+  height: 200px;
+}
+
+.player-image-container{
+  border: 1px solid #6c757d;
+  width: 600px;
+  height: 300px;
+  overflow: hidden; /* Ensures no part of the image spills out of the container */
+}
+
+.player-image{
+  
+  width: 350px;
+  height: 350px;
+  object-fit: cover; /* Covers the container, cropping the image if necessary */
+  overflow: hidden;
+}
+

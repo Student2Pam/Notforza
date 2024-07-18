@@ -1,18 +1,21 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Downloads.Data
 {
-    public class NotForzaContext : DbContext
+    
+    public class NotForzaContext(DbContextOptions<NotForzaContext> options) : DbContext(options)
     {
-        public NotForzaContext(DbContextOptions<NotForzaContext> options) : base(options) { }
 
         public DbSet<Car> Car { get; set; }
         public DbSet<PlayerStats> PlayerStats { get; set; }
+        public DbSet<Credentials> Credentials { get; set; }
     }
     public class Car
     {
@@ -42,6 +45,16 @@ namespace Downloads.Data
         public required string ProfilePic { get; set; }
         public string? Bio { get; set; }
     }
-
+    public class Credentials
+    {
+        [Key]
+        public int PasswordID { get; set; }
+        public required int PlayerID { get; set; }
+        public required string HashedPassword { get; set; }
+        public required string Salty { get; set; }
+        
+        [ForeignKey("PlayerID")]
+        public required virtual PlayerStats PlayerStats { get; set; }
+    }
+        
 }
-

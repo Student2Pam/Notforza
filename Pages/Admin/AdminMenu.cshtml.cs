@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Downloads.Pages.Admin
 {
-   [Authorize]
+   [Authorize(Roles = "Admin")]
     public class AdminMenuModel : PageModel
     {
         public void OnGet()
