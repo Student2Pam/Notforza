@@ -1,0 +1,62 @@
+@page
+@model Downloads.Pages_PlayerStats.DetailsModel
+
+@{
+    ViewData["IsColourful"] = true;
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PlayerStats</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.Currency)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.Currency)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.SocialLevel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.SocialLevel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.RankLevel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.RankLevel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.XP)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.XP)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.HouseLocation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.HouseLocation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PlayerStats.Bio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PlayerStats.Bio)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PlayerStats.PlayerID">Edit</a> |
+    <a asp-page="/Admin/AdminPlayer">Back to List</a>
+</div>

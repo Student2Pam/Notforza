@@ -1,0 +1,46 @@
+@page
+@model Downloads.Pages_PlayerStats.IndexModel
+
+@{
+    ViewData["IsPlayerData"] = true;
+    ViewData["Title"] = "Index";
+}
+
+
+<h1 style="padding-top:20px; color: white;"> Leaderboard </h1>
+
+
+<div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+    <input type="text" id="searchBar" placeholder="Search Players..." onkeyup="searchPlayers()" style="width: 40%; padding: 10px 20px; font-size: 16px; border: 2px solid #ddd; border-radius: 20px; outline: none; transition: all 0.3s ease-in-out;">
+</div>
+
+
+@* Players Data Displayed in Rows *@
+<div class="players-container">
+    @foreach (var Stats in Model.PlayerStats)
+    {
+        <div class="leader-row" style="display: flex; border: 1px solid #6c757d; margin-bottom: 10px; padding: 10px; align-items: center;border: 1px solid white;">
+            <div style="display: flex; align-items: center; flex: 1;">
+                <img src="@Stats.ProfilePic" alt="Profile Picture" style="width: 150px; height: 150px; object-fit: cover; margin-right: 10px;"/>
+                <div>
+                    <h2 style="margin: 0; padding-left: 50px;">@Html.DisplayFor(modelItem => Stats.Username)</h2>
+                    <div style="padding-left: 50px; padding-top: 30px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 850px;">
+                        Bio : 
+                        @if (!string.IsNullOrWhiteSpace(Stats.Bio))
+                        {
+                            <span>@Stats.Bio</span>
+                        }
+                        else
+                        {
+                            <span>This user doesn't have a bio.</span>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            <div style="flex: 0.25; text-align: center;">
+                <a asp-page="./ViewProfile" asp-route-id="@Stats.PlayerID" class="buy-btn">View Profile</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,132 @@
+@page
+@model Downloads.Pages_PlayerStats.ViewProfileModel
+@{
+    ViewData["IsViewProfile"] = true;
+    ViewData["Title"] = "User Details";
+    int maxXP = 100;
+    double xpPercentage = ((double)Model.PlayerStats.XP / maxXP) * 100;
+    bool isUserProfile = User?.Identity?.IsAuthenticated == true && User?.Identity?.Name == Model.PlayerStats.Username;
+}
+
+<div class="view-profile-container">
+    <img src="@Model.PlayerStats.ProfilePic" alt="Profile Picture" class="view-profile-pic" />
+    <div class="view-profile-header">
+        <h1>@Html.DisplayFor(model => model.PlayerStats.Username)'s Profile</h1>
+        <dt class="col-sm-3">XP:</dt>
+        <dd class="col-sm-9">
+            <div style="background-color: #e0e0e0; border-radius: 5px; overflow: hidden; position: relative;">
+                <div style="background: linear-gradient(to right, #eb0c80, orange); width: @xpPercentage%; height: 20px; border-radius: 5px;">
+                    <!-- The width is dynamically set based on the XP percentage -->
+                </div>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: black;">
+                    @Model.PlayerStats.XP/100
+                </div>
+            </div>
+            <br>
+        </dd>
+    </div>
+    
+    <dl class="row profile-info">
+        <dt class="col-sm-3">Rank Level:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.PlayerStats.RankLevel)</dd>
+        <dt class="col-sm-3">Currency:</dt>
+        <dd class="col-sm-9">£ @Model.PlayerStats.Currency.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("en-GB"))</dd>
+        <dt class="col-sm-3">Social Level:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.PlayerStats.SocialLevel)</dd>
+        <dt class="col-sm-3">House Location:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.PlayerStats.HouseLocation)</dd>
+        <br><br>
+        <hr style="width: 74%; border-color: #000000; margin-left: 0;">
+        <div>
+            <div style="max-width: 74%;">
+                <h3 class="col-sm-3">Bio:</h3>
+                <p style="padding-top: 10px;">
+                    @if (isUserProfile)
+                    {
+                        <form method="post">
+                            <textarea name="bio" rows="4" cols="62" style="background-color: #231f20; color: white;">@Model.PlayerStats.Bio</textarea>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    }
+                    else
+                    {
+                        @if (string.IsNullOrWhiteSpace(Model.PlayerStats.Bio))
+                        {
+                            @:This user doesn't have a bio
+                        }
+                        else
+                        {
+                            @Html.Raw(Model.PlayerStats.Bio.Replace("\n", "<br>"))
+                        }
+                    }
+                </p>
+            </div>
+        </div>
+        <hr style="width: 74%; border-color: #000000; margin-left: 0;">
+        <div>
+            <h3 class="col-sm-3">Inventory:</h3>
+            <div class="inventory-slider">
+            @for (int i = 0; i < Model.RandomItemNames.GetLength(0); i++)
+            {
+                <div style="margin-top:30px;">
+                    <h5><span style="font-weight: bold; text-decoration: underline;">@Model.RandomItemNames[i, 2] @Model.RandomItemNames[i, 1]</h5> 
+                    <img src="@Model.RandomItemNames[i, 0]" alt="Car Image" class="inventory-item"/>
+                </div>
+            }
+            
+            </div>  
+        </div>
+    
+    </dl>
+    <div>
+        <a href="/PlayerStats/PlayerData" class="buy-btn">Back</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerText = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if ('@ViewData["BioUpdated"]' === 'true') {
+                showNotification('Bio has been updated successfully!');
+            }
+        });
+    </script>
+
+    <style>
+        .notification {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .notification.show {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+    </style>
+}
+
